@@ -1,6 +1,12 @@
 
 # Creating a basic S2I builder image  
 
+## Usage
+```bash
+`oc new-app jkremser/jhipster-centos7~https://github.com/jiri-kremser/equoid-ui-prototype`
+```
+Instead of `https://github.com/jiri-kremser/equoid-ui-prototype` use your git repo of course.
+
 ## Getting started  
 
 ### Files and Directories  
@@ -68,15 +74,6 @@ Using the logic defined in the *assemble* script, s2i will now create an applica
 #### Running the application image
 Running the application image is as simple as invoking the docker run command:
 ```
-docker run -d -p 8080:8080 jhipster-centos7-app
+docker run -rm -it -p 8080:8080 jhipster-centos7-app
 ```
 The application, which consists of a simple static web page, should now be accessible at  [http://localhost:8080](http://localhost:8080).
-
-#### Using the saved artifacts script
-Rebuilding the application using the saved artifacts can be accomplished using the following command:
-```
-s2i build --incremental=true test/test-app nginx-centos7 nginx-app
----> Restoring build artifacts...
----> Building and installing application from source...
-```
-This will run the *save-artifacts* script which includes the custom code to backup the currently running application source, rebuild the application image, and then re-deploy the previously saved source using the *assemble* script.
