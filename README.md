@@ -3,7 +3,7 @@
 
 ## Usage
 ```bash
-`oc new-app jkremser/jhipster-centos7~https://github.com/jiri-kremser/equoid-ui-prototype`
+oc new-app jkremser/jhipster-centos7~https://github.com/jiri-kremser/equoid-ui-prototype
 ```
 Instead of `https://github.com/jiri-kremser/equoid-ui-prototype` use your git repo of course.
 
