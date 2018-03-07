@@ -5,8 +5,8 @@ To use it, install S2I: https://github.com/openshift/source-to-image
 
 Sample invocation:
 
-s2i build <source code path/URL> jhipster-centos7 <application image>
+s2i build https://github.com/jiri-kremser/equoid-ui-prototype jhipster-centos7 sample-app
 
 You can then run the resulting image via:
-docker run <application image>
+docker run --rm -it -p 8080:8080 sample-app
 EOF

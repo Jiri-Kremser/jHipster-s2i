@@ -7,4 +7,17 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
-exec asdf -p 8080
+JAVA_DEBUG="${JAVA_DEBUG:-false}"
+JAVA_DEBUG_PORT="${JAVA_DEBUG_PORT:-5005}"
+JHIPSTER_SLEEP="${JHIPSTER_SLEEP:-0}"
+export SPRING_OUTPUT_ANSI_ENABLED="${SPRING_OUTPUT_ANSI_ENABLED:-ALWAYS}"
+
+if [ "$JAVA_DEBUG" = true ] ; then
+  _DEBUG_ARGS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=${JAVA_DEBUG_PORT}"
+else
+  _DEBUG_ARGS=""
+fi
+
+echo "The application will start in ${JHIPSTER_SLEEP}s..." && \
+    sleep ${JHIPSTER_SLEEP} && \
+    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom ${_DEBUG_ARGS} -jar /opt/app-root/app.war
