@@ -7,7 +7,7 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
-MAVEN_ARGS="${MAVEN_ARGS:-package -Pprod,prometheus,no-liquibase}"
+MAVEN_ARGS="${MAVEN_ARGS:-package -DskipTests -Pprod,prometheus,no-liquibase}"
 
 # If the 'jhipster-centos7' assemble script is executed with the '-h' flag, print the usage.
 if [[ "$1" == "-h" ]]; then
