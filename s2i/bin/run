@@ -19,5 +19,6 @@ else
 fi
 
 echo "The application will start in ${JHIPSTER_SLEEP}s..." && \
+    touch /tmp/spring.log && \
     sleep ${JHIPSTER_SLEEP} && \
     java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom ${_DEBUG_ARGS} -jar /opt/app-root/app.war
