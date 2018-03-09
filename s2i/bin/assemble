@@ -24,3 +24,6 @@ echo "---> Building application from source..."
 cd /tmp/src/
 mvn $MAVEN_ARGS
 cp ./target/*.war /opt/app-root/app.war
+
+echo "---> Cleanup..."
+rm -rf /tmp/src

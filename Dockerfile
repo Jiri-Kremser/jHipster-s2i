@@ -21,11 +21,10 @@ RUN yum install -y java-1.8.0-openjdk-devel bzip2 && yum clean all -y && \
     tar -xzf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
     rm -rf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
     ln -s apache-maven-$MAVEN_VERSION apache-maven && \
-    ln -s /tmp/apache-maven/bin/mvn /usr/bin/mvn
+    ln -s /tmp/apache-maven/bin/mvn /usr/bin/mvn && \
+    chown -R 1001:0 /opt/app-root
 
 COPY ./s2i/bin/ /usr/libexec/s2i
-
-RUN chown -R 1001:1001 /opt/app-root
 
 USER 1001
 
